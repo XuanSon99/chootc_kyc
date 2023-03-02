@@ -1,0 +1,150 @@
+@media (max-width: 1024px) {
+    .mowtainer {
+        width: 90%;
+    }
+
+    .language {
+        margin-left: 30px;
+        margin-top: 15px;
+    }
+
+    .language .dropdown-menu {
+        min-width: 10rem;
+    }
+
+    .kyc {
+        display: block;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .home .mowgrid {
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    }
+
+    .detail .feature {
+        display: none;
+    }
+
+    .detail .main-content {
+        width: 100%;
+    }
+
+    .mini-posts {
+        display: none !important;
+    }
+
+    header {
+        box-shadow: 0px 0px 50px rgb(175 192 213 / 20%), 0px 7px 14px rgb(71 77 87 / 8%);
+    }
+
+    .menu {
+        display: none !important;
+    }
+
+    .menu-bar {
+        display: block;
+    }
+
+    #partner .mowgrid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    main {
+        min-height: calc(100vh - 100px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .space {
+        flex-wrap: wrap;
+    }
+
+    .mowtainer {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .home .mowgrid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .note {
+        margin-bottom: 25px;
+        font-size: 12px;
+    }
+
+    footer {
+        margin-top: 25px;
+        font-size: 14px;
+    }
+
+    .tab {
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .detail-price {
+        gap: 25px;
+        margin: 25px 0;
+    }
+
+    .detail-price .item {
+        padding: 20px;
+    }
+
+    .blog h1.title {
+        margin: 0 auto;
+    }
+
+    .blog-head {
+        margin-bottom: 30px;
+    }
+
+    h1.title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .detail .main-content h1 {
+        font-size: 26px;
+        line-height: 28px;
+    }
+
+    #partner .mowgrid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-gap: 20px 30px;
+    }
+
+    #partner .image img {
+        height: auto;
+        width: 40px;
+    }
+
+    #partner .image h3 {
+        font-size: 16px;
+    }
+
+    .detail .details {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .main-content .author {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .mowpad {
+        padding: 40px 0;
+    }
+
+    .news .content h2 {
+        margin-bottom: 10px;
+    }
+}
