@@ -1,9 +1,9 @@
 <template>
-  <div id="app" data-app>
+  <v-app data-app>
     <Header v-if="$route.meta.header" />
     <router-view />
-    <Footer v-if="$route.meta.header"/>
-  </div>
+    <Footer v-if="$route.meta.header" />
+  </v-app>
 </template>
 <script>
 import Header from "./components/Header.vue";

@@ -4,17 +4,12 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import i18n from "./i18n";
+import vuetify from "./plugins/vuetify.js";
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
-
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false
 Vue.config.silent = true
@@ -98,6 +93,7 @@ Vue.prototype.CallAPI = function (method, url, data, callResponse, callError) {
 }
 
 new Vue({
+  vuetify,
   router,
   store,
   i18n,

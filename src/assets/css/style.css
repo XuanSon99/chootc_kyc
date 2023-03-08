@@ -56,6 +56,7 @@ main {
     min-height: calc(100vh - 250px);
 }
 
+
 /* header_______________________________________________________________________________________________ */
 
 header .logo {
@@ -89,7 +90,7 @@ header .menu .menu-item {
     position: relative;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #fff !important;
 }
 
 header .menu .menu-item i {
@@ -327,7 +328,7 @@ header .menu {
     border-radius: 3px;
     background: #0a78ff;
     font-size: 14px;
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
     border: 1px solid #0a78ff;
     cursor: pointer;
@@ -335,7 +336,7 @@ header .menu {
 
 .btn-all.outline {
     background: none;
-    color: #0a78ff;
+    color: #0a78ff !important;
 }
 
 .btn-all.outline:hover {
@@ -355,20 +356,6 @@ header .menu {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-input {
-    height: 40px;
-    width: 100%;
-    outline: none;
-    padding: 0 12px;
-    border: 1px solid #cecece;
-    margin-bottom: 15px;
-    border-radius: 3px;
-}
-
-input:focus {
-    border: 1px solid #0a78ff;
 }
 
 .center {
@@ -399,27 +386,11 @@ header .btn-all {
     width: 120px;
     transition: all 200ms;
     box-shadow: 0px 0px 50px rgb(175 192 213 / 20%), 0px 7px 14px rgb(71 77 87 / 8%);
+    color: #fff !important;
 }
 
 .btn-all:hover {
     opacity: 0.8;
-    color: #fff;
-}
-
-.note {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0a78ff;
-    color: #fff;
-    margin-bottom: 60px;
-    font-size: 14px;
-    padding: 20px;
-    text-align: center;
-}
-
-.note a {
     color: #fff;
 }
 
@@ -431,73 +402,16 @@ header .btn-all {
     padding-top: 60px;
 }
 
+.grid-top {
+    grid-template-columns: 4fr 3.5fr;
+}
+
+.grid-bot {
+    grid-template-columns: 3.5fr 4fr;
+}
+
 .home .mowgrid {
-    grid-template-columns: 4.5fr 3fr;
-    grid-gap: 35px
-}
-
-.price-box {
-    padding: 30px 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 50px rgb(175 192 213 / 20%), 0px 7px 14px rgb(71 77 87 / 8%);
-}
-
-.price-box h2 {
-    font-size: 20px;
-    color: #0a78ff;
-    font-weight: 600;
-    text-align: center;
-}
-
-.price-box .symbol {
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #707A8A;
-    padding-bottom: 10px;
-    margin-left: 10px;
-}
-
-.price-box .name {
-    font-weight: 500;
-}
-
-.price-box img {
-    height: 25px;
-    width: 25px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.price-box .space {
-    padding: 10px;
-    transition: all 200ms;
-    cursor: pointer;
-}
-
-.price-box .space:hover {
-    background: #F5F5F5;
-}
-
-.price-box .head {
-    color: #707A8A;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10px;
-}
-
-.price-box .list {
-    height: 528px;
-    overflow: scroll;
-}
-
-.price-box .list::-webkit-scrollbar {
-    display: none;
-}
-
-.price-box .list {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    grid-gap: 32px
 }
 
 .item {
@@ -521,7 +435,7 @@ header .btn-all {
     height: 64px;
     font-size: 22px;
     font-weight: 600;
-    border-radius: 8px 0 0 0;
+    border-radius: 8px 8px 0 0;
     background-color: #F5F5F5;
     color: #AEB4BC;
     cursor: pointer;
@@ -615,7 +529,7 @@ label {
 
 .detail-price {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 30px;
     margin: 30px 0;
     text-align: center;
@@ -629,21 +543,28 @@ label {
 
 .detail-price h3 {
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 5px;
     font-weight: 600;
 }
 
 .detail-price h4 {
-    font-size: 18px;
+    color: #0a78ff;
+    font-size: 16px;
     margin-bottom: 0;
-    color: #707A8A;
+    font-weight: 600;
+}
+
+.detail-price .item {
+    padding: 25px 20px;
 }
 
 .detail-price span {
-    color: #0a78ff;
+    font-weight: 500;
+    color: #707A8A;
+    font-size: 14px;
 }
 
-.detail-price .sell-price span {
+.detail-price .sell-price {
     color: #f6465d;
 }
 
@@ -657,13 +578,6 @@ label {
     font-weight: 600;
     font-size: 26px;
     cursor: pointer;
-}
-
-h1.title {
-    text-align: center;
-    font-size: 35px;
-    font-weight: 600;
-    margin-bottom: 30px;
 }
 
 #partner {
@@ -1158,31 +1072,102 @@ h1.title {
     background: red;
 }
 
-/* table_______________________________________________________________________________________ */
-.mowtable {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-    overflow: hidden;
+.v-data-table>.v-data-table__wrapper>table>tbody>tr>td,
+.v-data-table>.v-data-table__wrapper>table>tfoot>tr>td,
+.v-data-table>.v-data-table__wrapper>table>thead>tr>td {
+    font-size: 16px;
 }
 
-.mowtable th {
-    text-transform: uppercase;
-    background: #00000030;
+.v-data-table>.v-data-table__wrapper>table>tbody>tr>th,
+.v-data-table>.v-data-table__wrapper>table>tfoot>tr>th,
+.v-data-table>.v-data-table__wrapper>table>thead>tr>th {
     font-size: 14px;
 }
 
-.mowtable th,
-td {
-    padding: 10px 15px;
+.mowtit {
+    font-size: 20px;
+    position: relative;
+    padding-left: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
-.mowtable tr:not(:last-child) td {
-    border-bottom: 1px solid #00000030;
+.mowtit::after {
+    content: "";
+    position: absolute;
+    height: 22px;
+    border-radius: 50px;
+    width: 4px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0a78ff;
 }
 
-.mowtable tr:not(:first-child):hover {
-    background: #00000010;
+.mowtit.big-title {
+    width: max-content;
+    margin: 0 auto;
+    font-size: 36px;
+    margin-bottom: 30px;
+    padding-left: 20px;
 }
-.mowtable .name{
-    color: #0a78ff;
+
+.big-title::after {
+    height: 36px;
+    width: 6px;
+}
+
+.v-tabs {
+    width: auto !important;
+}
+
+.price-up {
+    color: #03a66d;
+    position: relative;
+    padding-left: 15px;
+}
+
+.price-up::after,
+.price-down::after {
+    content: "↑";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+.price-down {
+    color: #f6465d;
+    position: relative;
+    padding-left: 15px;
+}
+
+.price-down::after {
+    content: "↓";
+}
+
+.down-color {
+    color: #f6465d;
+}
+
+.up-color {
+    color: #03a66d;
+}
+
+.table-image {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}
+
+.gold-price .price-down,
+.gold-price .price-up {
+    font-size: 13px;
+}
+
+.v-data-table td {
+    font-size: 14px !important;
 }
