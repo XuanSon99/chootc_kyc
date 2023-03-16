@@ -3,8 +3,8 @@
     <section class="kyc">
       <div class="paddin" v-if="tab == 1">
         <h3>Thông tin cơ bản</h3>
-        <input type="text" placeholder="Họ và tên" v-model="name" />
-        <input type="number" placeholder="Số điện thoại" v-model="phone" />
+        <v-text-field placeholder="Họ và tên" outlined v-model="name"></v-text-field>
+        <v-text-field placeholder="Số điện thoại" outlined v-model="phone"></v-text-field>
         <div class="center">
           <div class="btn-all" @click="firstStep">Tiếp tục</div>
         </div>
@@ -17,10 +17,7 @@
           <h3>Chụp ảnh mặt trước CCCD/CMND</h3>
           <div class="space">
             <div class="btn-all outline" @click="tab = 1">Quay lại</div>
-            <div
-              :class="{ 'btn-all': true, disabled: !front }"
-              @click="tab = 3"
-            >
+            <div :class="{ 'btn-all': true, disabled: !front }" @click="tab = 3">
               Tiếp tục
             </div>
           </div>
@@ -34,10 +31,7 @@
           <h3>Chụp ảnh mặt sau CCCD/CMND</h3>
           <div class="space">
             <div class="btn-all outline" @click="tab = 2">Quay lại</div>
-            <div
-              :class="{ 'btn-all': true, disabled: !back }"
-              @click="lastStep"
-            >
+            <div :class="{ 'btn-all': true, disabled: !back }" @click="lastStep">
               Tiếp tục
             </div>
           </div>
@@ -51,11 +45,7 @@
           <h3>Chụp ảnh chân dung của bạn</h3>
           <div class="space">
             <div class="btn-all outline" @click="tab = 3">Quay lại</div>
-            <div
-              :class="{ 'btn-all': true, disabled: !portrait }"
-              @click="confirm"
-              v-if="!loading"
-            >
+            <div :class="{ 'btn-all': true, disabled: !portrait }" @click="confirm" v-if="!loading">
               Hoàn thành
             </div>
             <div class="btn-all disabled" v-else>Loading...</div>
@@ -205,5 +195,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

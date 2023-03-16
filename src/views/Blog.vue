@@ -3,9 +3,9 @@
     <section class="news mowpad">
       <div class="mowtainer">
         <div class="blog-head">
-          <h1 class="title shadow-border">
+          <div class="mowtit big-title">
             {{ cateName }}
-          </h1>
+          </div>
           <div v-if="title" class="search-title">
             <span>{{ $t("search") }}: {{ title }}</span>
           </div>
@@ -16,11 +16,7 @@
         <div class="mowgrid" v-if="postList[0]">
           <div class="item" v-for="(item, index) in postList" :key="index">
             <div class="image">
-              <img
-                :src="image(item.image)"
-                @click="toDetail(item.slug)"
-                :alt="item.title"
-              />
+              <img :src="image(item.image)" @click="toDetail(item.slug)" :alt="item.title" />
             </div>
             <div class="content">
               <h2 @click="toDetail(item.slug)">{{ item.title }}</h2>
@@ -40,10 +36,7 @@
         <div class="mowgrid" v-else>
           <div class="item loader" v-for="i in 6" :key="i"></div>
         </div>
-        <div
-          :class="{ 'btn-all': true, shadow: true, disabled: btnDisabled }"
-          @click="currentPage++"
-        >
+        <div :class="{ 'btn-all': true, shadow: true, disabled: btnDisabled }" @click="currentPage++">
           {{ $t("readmore") }}
         </div>
       </div>
@@ -85,13 +78,12 @@ export default {
           `categories/${this.$route.params.id}?page=${this.currentPage}&language=${language}`,
           {},
           (res) => {
-            this.cateName = this.$route.params.id
-              .replaceAll("-", " ")
-              .toUpperCase();
             if (!res.data[0]) {
               this.btnDisabled = true;
               return;
             }
+            this.btnDisabled = false;
+            this.cateName = res.data[0].cate_name
             this.postList = res.data;
           }
         );
@@ -111,6 +103,7 @@ export default {
             this.btnDisabled = true;
             return;
           }
+          this.btnDisabled = false;
           this.postList = res.data;
         }
       );
@@ -161,5 +154,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -28,7 +28,7 @@
           <div class="space" v-for="(item, index) in postList" :key="index">
             <img :src="image(item.image)" alt="" />
             <div class="title">
-              <h3 @click="toDetail(item.slug)">{{ item.title }}</h3>
+              <h3 @click="toDetail(item.slug)">{{ formatTitle(item.title) }}</h3>
               <p class="space">
                 <span>
                   <i class="far fa-calendar-alt"></i>
@@ -44,17 +44,13 @@
         </div>
       </div>
       <div v-if="relatedList[0]">
-        <h1 class="title shadow-border" :data-name="$t('RelatedPosts')">
+        <div class="mowtit big-title" :data-name="$t('RelatedPosts')">
           {{ $t("RelatedPosts") }}
-        </h1>
+        </div>
         <div class="mowgrid">
           <div class="item" v-for="(item, index) in relatedList" :key="index">
             <div class="image">
-              <img
-                :src="image(item.image)"
-                @click="toDetail(item.slug)"
-                :alt="item.title"
-              />
+              <img :src="image(item.image)" @click="toDetail(item.slug)" :alt="item.title" />
             </div>
             <div class="content">
               <h2 @click="toDetail(item.slug)">{{ item.title }}</h2>
@@ -71,11 +67,7 @@
             </div>
           </div>
         </div>
-        <router-link
-          tag="div"
-          class="btn-all shadow"
-          :to="'/tin-tuc/' + info.category"
-        >
+        <router-link tag="div" class="btn-all shadow" :to="'/tin-tuc/' + info.category">
           {{ $t("readmore") }}
         </router-link>
       </div>
@@ -153,9 +145,16 @@ export default {
       if (!date) return;
       return moment(value).format("MMMM D, YYYY");
     },
+    formatTitle(value) {
+      if (!value) return
+      let array = value.split(" ")
+      if (array.length <= 10) {
+        return value
+      }
+      return array.slice(0, 10).join(" ") + "..."
+    }
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

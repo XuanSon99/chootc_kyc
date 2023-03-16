@@ -16,6 +16,15 @@ export default {
 #app {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  color: #1E2329;
+  color: #fff;
 }
-</style>
+
+.theme--dark.v-tabs>.v-tabs-bar,
+.theme--dark.v-tabs-items,
+.theme--dark.v-data-table {
+  background: none !important;
+}
+
+.theme--dark.v-application {
+  background: #000211 !important;
+}</style>

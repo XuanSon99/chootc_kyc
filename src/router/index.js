@@ -47,6 +47,34 @@ const routes = [
       header: true
     }
   },
+  {
+    path: '/ngoai-te',
+    component: () => import('../views/rate/Currency.vue'),
+    meta: {
+      header: true
+    }
+  },
+  {
+    path: '/gia-vang',
+    component: () => import('../views/rate/Gold.vue'),
+    meta: {
+      header: true
+    }
+  },
+  {
+    path: '/crypto',
+    component: () => import('../views/rate/Crypto.vue'),
+    meta: {
+      header: true
+    }
+  },
+  {
+    path: '/chung-khoan',
+    component: () => import('../views/rate/Stock.vue'),
+    meta: {
+      header: true
+    }
+  },
 ]
 
 const router = new VueRouter({

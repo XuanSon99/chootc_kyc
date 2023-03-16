@@ -6,11 +6,11 @@ import '@mdi/font/css/materialdesignicons.css'
 Vue.use(Vuetify);
 const opts = {
   theme: {
-    dark: false,
+    dark: true,
     themes: {
-      light: {
+      dark: {
         primary: {
-          base: "#0a78ff",
+          base: "#00dedf",
           darken1: "#04c279"
         },
       }
