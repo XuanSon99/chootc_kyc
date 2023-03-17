@@ -3,8 +3,8 @@
     <div class="mowtainer">
       <div class="mowgrid grid-footer align-start">
         <div class="foot-logo relative">
-          <img src="/img/logo.png" alt="">
-          <h1>chootc.com</h1>
+          <img src="/img/logo-footer.png" alt="">
+          <img src="/img/logo-footer-2.png" alt="">
         </div>
         <div>
           <h2>Tỷ giá</h2>

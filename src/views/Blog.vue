@@ -61,6 +61,7 @@ export default {
       title: "",
       btnDisabled: false,
       cateName: "Tin tức",
+      ok: ""
     };
   },
   mounted() {

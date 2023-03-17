@@ -4,8 +4,7 @@
       <div class="mowtainer align-center space">
         <router-link tag="div" to="/" class="logo">
           <div class="flex align-center">
-            <img src="/img/logo.png" />
-            <h3>chootc.com</h3>
+            <img src="/img/logo-header.png" />
           </div>
         </router-link>
         <div class="menu">
@@ -151,6 +150,10 @@ export default {
             {
               slug: "/bai-viet/quy-dinh-chinh-sach",
               name: "Quy định & chính sách",
+            },
+            {
+              slug: "/tin-tuc/huong-dan-nguoi-moi",
+              name: "Hướng dẫn người mới",
             },
           ],
         },

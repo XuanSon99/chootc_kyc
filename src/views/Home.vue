@@ -31,7 +31,7 @@
             <div class="pd-30" v-if="tab == 0">
               <label>Tôi muốn trao đổi</label>
               <div class="input-box">
-                <input type="text" v-model="buy_vnd" @input="buyVND" @focus="unFormatBuy"
+                <input type="text" class="exchange-input" v-model="buy_vnd" @input="buyVND" @focus="unFormatBuy"
                   @blur="buy_vnd = formatVNPrice(buy_vnd)" />
                 <div class="unit">
                   <img src="/img/exchange/vnd.png" alt="" />
@@ -40,10 +40,12 @@
               </div>
               <label>Tôi sẽ nhận được≈</label>
               <div class="input-box">
-                <input type="text" v-model="buy_usdt" @input="buyUSDT" />
+                <input type="text" class="exchange-input" v-model="buy_usdt" @input="buyUSDT" />
                 <div class="unit">
                   <img src="/img/exchange/usdt.png" alt="" />
                   <span>USDT</span>
+                  <!-- <v-select class="mt-7" dense solo :items="p2p_token_list" v-model="p2p_token">
+                  </v-select> -->
                 </div>
               </div>
               <div class="d-flex align-center">
@@ -75,7 +77,7 @@
             <div class="pd-30" v-else>
               <label>Tôi muốn trao đổi</label>
               <div class="input-box">
-                <input type="text" v-model="sell_usdt" @input="sellUSDT" />
+                <input type="text" class="exchange-input" v-model="sell_usdt" @input="sellUSDT" />
                 <div class="unit">
                   <img src="/img/exchange/usdt.png" alt="" />
                   <span>USDT</span>
@@ -83,7 +85,7 @@
               </div>
               <label>Tôi sẽ nhận được≈</label>
               <div class="input-box">
-                <input type="text" v-model="sell_vnd" @input="sellVND" @focus="unFormatSell"
+                <input type="text" class="exchange-input" v-model="sell_vnd" @input="sellVND" @focus="unFormatSell"
                   @blur="sell_vnd = formatVNPrice(sell_vnd)" />
                 <div class="unit">
                   <img src="/img/exchange/vnd.png" alt="" />
@@ -184,13 +186,19 @@
             </div>
           </div>
           <div class="item pd-30">
-            <div class="space">
-              <div class="mowtit mb-2">
+            <div class="space mb-2">
+              <div class="mowtit">
                 <span>Giá vàng</span>
                 <v-btn icon color="primary" class="ml-2" @click="refreshHandle(5)">
                   <v-icon>mdi-cached</v-icon>
                 </v-btn>
               </div>
+              <v-btn text to="/gia-vang">
+                Quy đổi
+                <v-icon class="ml-1" size="20" color="primary">
+                  mdi-arrow-right
+                </v-icon>
+              </v-btn>
             </div>
             <v-data-table class="gold-price" :headers="headers.gold" :items="gold" :page.sync="page.gold"
               :items-per-page="8" hide-default-footer :mobile-breakpoint="0">
@@ -444,7 +452,9 @@ export default {
         stock: 1
       },
       tutorial_post: [],
-      market_post: []
+      market_post: [],
+      p2p_token: "USDT",
+      p2p_token_list: ["BTC", "USDT"]
     };
   },
   mounted() {
@@ -459,7 +469,7 @@ export default {
         "categories/huong-dan-nguoi-moi",
         {},
         (res) => {
-          this.tutorial_post = res.data;
+          this.tutorial_post = res.data.reverse();
         }
       );
       this.CallAPI(
