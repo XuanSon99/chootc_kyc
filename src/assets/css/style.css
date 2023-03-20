@@ -509,10 +509,9 @@ input.exchange-input:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     cursor: pointer;
-    background: #ffffff30;
 }
 
 .theme--dark.v-text-field--solo>.v-input__control>.v-input__slot {
@@ -531,10 +530,13 @@ input.exchange-input:hover {
 .unit .v-text-field.v-text-field--enclosed .v-text-field__details,
 .v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)>.v-input__control>.v-input__slot {
     padding: 0 10px;
+    padding-right: 5px;
 }
 
 .input-box .unit img {
     width: 20px;
+    height: 20px;
+    object-fit: contain;
     margin-right: 5px;
 }
 
@@ -590,9 +592,14 @@ input.exchange-input:hover {
 
 .detail-price h4 {
     color: #12ebe0;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 0;
     font-weight: 600;
+}
+
+.detail-price h4 b {
+    font-weight: 600;
+    margin-left: 3px;
 }
 
 .detail-price .item {
@@ -1337,4 +1344,15 @@ input.exchange-input:hover {
 
 .foot-logo img:nth-child(2) {
     display: none;
+}
+
+.v-list-item {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.v-list-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }

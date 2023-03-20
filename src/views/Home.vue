@@ -34,22 +34,37 @@
                 <input type="text" class="exchange-input" v-model="buy_vnd" @input="buyVND" @focus="unFormatBuy"
                   @blur="buy_vnd = formatVNPrice(buy_vnd)" />
                 <div class="unit">
-                  <img src="/img/exchange/vnd.png" alt="" />
-                  <span>VND</span>
+                  <v-select class="mt-7" dense solo :items="p2p_currency_list" v-model="p2p_currency.buy">
+                    <template slot="selection" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.png'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.png'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                  </v-select>
                 </div>
               </div>
               <label>Tôi sẽ nhận được≈</label>
               <div class="input-box">
                 <input type="text" class="exchange-input" v-model="buy_usdt" @input="buyUSDT" />
                 <div class="unit">
-                  <img src="/img/exchange/usdt.png" alt="" />
-                  <span>USDT</span>
-                  <!-- <v-select class="mt-7" dense solo :items="p2p_token_list" v-model="p2p_token">
-                  </v-select> -->
+                  <v-select class="mt-7" dense solo :items="p2p_token_list" v-model="p2p_token.buy">
+                    <template slot="selection" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.svg'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.svg'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                  </v-select>
                 </div>
               </div>
               <div class="d-flex align-center">
-                <span>Giá ước tính: 1 USDT ≈ {{ formatVNPrice(buy_price) }}</span>
+                <span>Giá ước tính: 1 {{ p2p_token.buy.toUpperCase() }} ≈ {{ formatPrice(buy_price) }} {{
+                  p2p_currency.buy.toUpperCase() }}</span>
                 <v-btn icon color="primary" class="ml-2" @click="refreshHandle(2)">
                   <v-icon>mdi-cached</v-icon>
                 </v-btn>
@@ -60,7 +75,8 @@
                   <h3>Chợ OTC VN</h3>
                   <h4>
                     <span>Giá mua:</span>
-                    {{ formatVNPrice(buy_price) }}
+                    <b v-if="p2p_token.buy == 'usdt' && p2p_currency.buy == 'vnd'">{{ formatVNPrice(buy_price) }}</b>
+                    <b v-else>{{ formatPrice(buy_price) }}</b>
                   </h4>
                 </div>
                 <div class="item">
@@ -68,7 +84,8 @@
                   <h3>P2P Binance</h3>
                   <h4>
                     <span>Giá mua:</span>
-                    {{ formatVNPrice(buy_price + 5) }}
+                    <b v-if="p2p_token.buy == 'usdt' && p2p_currency.buy == 'vnd'">{{ formatVNPrice(buy_price + 5) }}</b>
+                    <b v-else>{{ formatPrice(buy_price) }}</b>
                   </h4>
                 </div>
               </div>
@@ -79,8 +96,16 @@
               <div class="input-box">
                 <input type="text" class="exchange-input" v-model="sell_usdt" @input="sellUSDT" />
                 <div class="unit">
-                  <img src="/img/exchange/usdt.png" alt="" />
-                  <span>USDT</span>
+                  <v-select class="mt-7" dense solo :items="p2p_token_list" v-model="p2p_token.sell">
+                    <template slot="selection" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.svg'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.svg'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                  </v-select>
                 </div>
               </div>
               <label>Tôi sẽ nhận được≈</label>
@@ -88,12 +113,21 @@
                 <input type="text" class="exchange-input" v-model="sell_vnd" @input="sellVND" @focus="unFormatSell"
                   @blur="sell_vnd = formatVNPrice(sell_vnd)" />
                 <div class="unit">
-                  <img src="/img/exchange/vnd.png" alt="" />
-                  <span>VND</span>
+                  <v-select class="mt-7" dense solo :items="p2p_currency_list" v-model="p2p_currency.sell">
+                    <template slot="selection" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.png'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                      <img :src="'/img/p2p/' + data.item + '.png'" alt="">
+                      {{ data.item.toUpperCase() }}
+                    </template>
+                  </v-select>
                 </div>
               </div>
               <div class="d-flex align-center">
-                <span>Giá ước tính: 1 USDT ≈ {{ formatVNPrice(sell_price) }}</span>
+                <span>Giá ước tính: 1 {{ p2p_token.sell.toUpperCase() }} ≈ {{ formatPrice(sell_price) }} {{
+                  p2p_currency.sell.toUpperCase() }}</span>
                 <v-btn icon color="primary" class="ml-2" @click="refreshHandle(2)">
                   <v-icon>mdi-cached</v-icon>
                 </v-btn>
@@ -104,7 +138,8 @@
                   <h3>Chợ OTC</h3>
                   <h4 class="sell-price">
                     <span>Giá bán:</span>
-                    {{ formatVNPrice(sell_price) }}
+                    <b v-if="p2p_token.sell == 'usdt' && p2p_currency.sell == 'vnd'">{{ formatVNPrice(sell_price) }}</b>
+                    <b v-else>{{ formatPrice(sell_price) }}</b>
                   </h4>
                 </div>
                 <div class="item">
@@ -112,7 +147,9 @@
                   <h3>P2P Binance</h3>
                   <h4 class="sell-price">
                     <span>Giá bán:</span>
-                    {{ formatVNPrice(sell_price - 5) }}
+                    <b v-if="p2p_token.sell == 'usdt' && p2p_currency.sell == 'vnd'">{{ formatVNPrice(sell_price - 5)
+                    }}</b>
+                    <b v-else>{{ formatPrice(sell_price) }}</b>
                   </h4>
                 </div>
               </div>
@@ -405,7 +442,7 @@ export default {
       tabs: ["Mua", "Bán"],
       tab: 0,
       buy_usdt: "",
-      buy_vnd: 1000000,
+      buy_vnd: 10000000,
       sell_usdt: 100,
       sell_vnd: "",
       exchanges: "",
@@ -453,13 +490,22 @@ export default {
       },
       tutorial_post: [],
       market_post: [],
-      p2p_token: "USDT",
-      p2p_token_list: ["BTC", "USDT"]
+      p2p_token: {
+        buy: "usdt",
+        sell: "usdt"
+      },
+      p2p_token_list: ["usdt", "btc", "eth", "busd", "bnb", "ada"],
+      p2p_currency: {
+        buy: "vnd",
+        sell: "vnd"
+      },
+      p2p_currency_list: ["vnd", "aud", "cad", "cny", "eur", "jpy"],
     };
   },
   mounted() {
     this.getList();
-    this.getPrice();
+    this.getBuyPrice();
+    this.getSellPrice();
     this.getPost();
   },
   methods: {
@@ -489,7 +535,8 @@ export default {
         this.getWorld();
       }
       if (value == 2) {
-        this.getPrice();
+        this.getBuyPrice();
+        this.getSellPrice();
       }
       if (value == 3) {
         this.coin_list = []
@@ -555,17 +602,27 @@ export default {
         this.stock = res.data;
       });
     },
-    getPrice() {
+    getBuyPrice() {
       this.buy_price = 0
-      this.sell_price = 0
-      this.CallAPI("get", "p2p/buy", {}, (res) => {
-        this.buy_price = Number(res.data.data[0].adv.price) - 5;
+      const buy_params = `p2p?type=buy&asset=${this.p2p_token.buy}&fiat=${this.p2p_currency.buy}`
+      this.CallAPI("get", buy_params, {}, (res) => {
+        this.buy_price = Number(res.data.data[0].adv.price);
+        if (this.p2p_token.buy == 'usdt' && this.p2p_currency.buy == 'vnd') {
+          this.buy_price = Number(res.data.data[0].adv.price) - 5;
+        }
         this.buyVND();
         if (this.buy_vnd.toString().includes(",")) return
         this.buy_vnd = this.formatVNPrice(this.buy_vnd);
       });
-      this.CallAPI("get", "p2p/sell", {}, (res) => {
-        this.sell_price = Number(res.data.data[0].adv.price) + 5;
+    },
+    getSellPrice() {
+      this.sell_price = 0
+      const sell_params = `p2p?type=sell&asset=${this.p2p_token.sell}&fiat=${this.p2p_currency.sell}`
+      this.CallAPI("get", sell_params, {}, (res) => {
+        this.sell_price = Number(res.data.data[0].adv.price);
+        if (this.p2p_token.sell == 'usdt' && this.p2p_currency.sell == 'vnd') {
+          this.sell_price = Number(res.data.data[0].adv.price) + 5;
+        }
         this.sellUSDT();
       });
     },
@@ -615,6 +672,20 @@ export default {
       this.$router.push("/bai-viet/" + slug);
     },
   },
+  watch: {
+    "p2p_token.buy"() {
+      this.getBuyPrice()
+    },
+    "p2p_currency.buy"() {
+      this.getBuyPrice()
+    },
+    "p2p_token.sell"() {
+      this.getSellPrice()
+    },
+    "p2p_currency.sell"() {
+      this.getSellPrice()
+    },
+  }
 };
 </script>
 
