@@ -60,8 +60,7 @@ export default {
       query: "",
       title: "",
       btnDisabled: false,
-      cateName: "Tin tức",
-      ok: ""
+      cateName: "Tin tức"
     };
   },
   mounted() {
@@ -100,12 +99,12 @@ export default {
         `posts?page=${this.currentPage}&language=${language}`,
         {},
         (res) => {
-          if (!res.data[0]) {
+          if (!res.data.data[0]) {
             this.btnDisabled = true;
             return;
           }
           this.btnDisabled = false;
-          this.postList = res.data;
+          this.postList = res.data.data;
         }
       );
     },

@@ -134,7 +134,7 @@ export default {
     getList() {
       let language = this.$i18n.locale == "en" ? 0 : 1;
       this.CallAPI("get", "posts?language=" + language, {}, (res) => {
-        this.postList = res.data;
+        this.postList = res.data.data;
       });
     },
     toDetail(slug) {

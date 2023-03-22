@@ -212,7 +212,7 @@
                 <v-icon>mdi-arrow-right</v-icon>
               </v-btn>
             </div>
-            <div class="item-news mb-5" v-for="(item, index) in tutorial_post" :key="index">
+            <div class="item-news mt-5" v-for="(item, index) in tutorial_post" :key="index">
               <div class="image" @click="toDetail(item.slug)">
                 <img :src="image(item.image)" alt="">
               </div>
@@ -515,7 +515,7 @@ export default {
         "categories/huong-dan-nguoi-moi",
         {},
         (res) => {
-          this.tutorial_post = res.data.reverse();
+          this.tutorial_post = res.data.reverse().slice(0, 4);
         }
       );
       this.CallAPI(
@@ -606,9 +606,9 @@ export default {
       this.buy_price = 0
       const buy_params = `p2p?type=buy&asset=${this.p2p_token.buy}&fiat=${this.p2p_currency.buy}`
       this.CallAPI("get", buy_params, {}, (res) => {
-        this.buy_price = Number(res.data.data[0].adv.price);
+        this.buy_price = Number(res.data.data[4].adv.price);
         if (this.p2p_token.buy == 'usdt' && this.p2p_currency.buy == 'vnd') {
-          this.buy_price = Number(res.data.data[0].adv.price) - 5;
+          this.buy_price = Number(res.data.data[4].adv.price) - 5;
         }
         this.buyVND();
         if (this.buy_vnd.toString().includes(",")) return
@@ -619,9 +619,9 @@ export default {
       this.sell_price = 0
       const sell_params = `p2p?type=sell&asset=${this.p2p_token.sell}&fiat=${this.p2p_currency.sell}`
       this.CallAPI("get", sell_params, {}, (res) => {
-        this.sell_price = Number(res.data.data[0].adv.price);
+        this.sell_price = Number(res.data.data[4].adv.price);
         if (this.p2p_token.sell == 'usdt' && this.p2p_currency.sell == 'vnd') {
-          this.sell_price = Number(res.data.data[0].adv.price) + 5;
+          this.sell_price = Number(res.data.data[4].adv.price) + 5;
         }
         this.sellUSDT();
       });
