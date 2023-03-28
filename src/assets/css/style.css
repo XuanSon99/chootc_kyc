@@ -896,6 +896,11 @@ input.exchange-input:hover {
     min-height: 590px;
 }
 
+.detail .details iframe {
+    width: 500px;
+    height: 300px;
+}
+
 .detail .details h2 {
     margin-bottom: 25px;
 }
@@ -1291,33 +1296,29 @@ input.exchange-input:hover {
     background: #ffffff20;
 }
 
-.planet {
+.planet, .earth{
+    transform: rotate(220deg);
+    z-index: -1;
     border-radius: 50%;
+    position: absolute;
+}
+
+.planet {
     height: 600px;
     width: 600px;
     background: linear-gradient(to bottom, rgba(48, 34, 111, 1) 0%, rgba(35, 25, 80, 1) 5%, rgba(27, 19, 62, 1) 8%, rgba(20, 16, 48, 1) 13%, rgba(17, 13, 40, 1) 17%, rgba(12, 9, 29, 1) 51%, rgba(12, 10, 30, 1) 78%, rgba(16, 12, 36, 1) 100%);
-    position: absolute;
     bottom: -100px;
     left: 200px;
-    opacity: 48%;
-    -webkit-transform: rotate(220deg);
-    -moz-transform: rotate(220deg);
-    -ms-transform: rotate(220deg);
-    transform: rotate(220deg);
-    z-index: -1;
+    opacity: 48% !important;
 }
 
-.planet2 {
-    border-radius: 50%;
+.earth {
     height: 1200px;
     width: 1200px;
     background: linear-gradient(to bottom, rgba(27, 41, 72, 1) 0%, rgba(31, 49, 79, 1) 0%, rgba(20, 25, 52, 1) 10%, #000211 36%, #000211 52%, #000211 100%);
-    position: absolute;
     right: -100px;
     top: 0;
-    opacity: 32%;
-    transform: rotate(220deg);
-    z-index: -1;
+    opacity: 32% !important;
 }
 
 .bgr-planet {

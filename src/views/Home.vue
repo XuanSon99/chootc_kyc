@@ -396,7 +396,7 @@
           </div>
         </div>
       </div>
-      <div class="planet2"></div>
+      <div class="earth"></div>
     </section>
     <!-- <section id="partner">
       <div class="mowtainer">

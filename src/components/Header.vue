@@ -4,7 +4,7 @@
       <div class="mowtainer align-center space">
         <router-link tag="div" to="/" class="logo">
           <div class="flex align-center">
-            <img src="/img/logo-header.png" />
+            <img src="/img/logo-footer.png" />
           </div>
         </router-link>
         <div class="menu">
