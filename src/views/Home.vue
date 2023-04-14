@@ -604,7 +604,7 @@ export default {
     },
     getBuyPrice() {
       this.buy_price = 0
-      const buy_params = `p2p?type=buy&asset=${this.p2p_token.buy}&fiat=${this.p2p_currency.buy}`
+      const buy_params = `p2p?type=buy&asset=${this.p2p_token.buy}&fiat=${this.p2p_currency.buy}&page=1`
       this.CallAPI("get", buy_params, {}, (res) => {
         this.buy_price = Number(res.data.data[4].adv.price);
         if (this.p2p_token.buy == 'usdt' && this.p2p_currency.buy == 'vnd') {
@@ -617,7 +617,7 @@ export default {
     },
     getSellPrice() {
       this.sell_price = 0
-      const sell_params = `p2p?type=sell&asset=${this.p2p_token.sell}&fiat=${this.p2p_currency.sell}`
+      const sell_params = `p2p?type=sell&asset=${this.p2p_token.sell}&fiat=${this.p2p_currency.sell}&page=1`
       this.CallAPI("get", sell_params, {}, (res) => {
         this.sell_price = Number(res.data.data[4].adv.price);
         if (this.p2p_token.sell == 'usdt' && this.p2p_currency.sell == 'vnd') {
