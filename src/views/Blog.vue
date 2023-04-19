@@ -16,7 +16,11 @@
         <div class="mowgrid" v-if="postList[0]">
           <div class="item" v-for="(item, index) in postList" :key="index">
             <div class="image">
-              <img :src="image(item.image)" @click="toDetail(item.slug)" :alt="item.title" />
+              <img
+                :src="image(item.image)"
+                @click="toDetail(item.slug)"
+                :alt="item.title"
+              />
             </div>
             <div class="content">
               <h2 @click="toDetail(item.slug)">{{ item.title }}</h2>
@@ -36,9 +40,14 @@
         <div class="mowgrid" v-else>
           <div class="item loader" v-for="i in 6" :key="i"></div>
         </div>
-        <div :class="{ 'btn-all': true, shadow: true, disabled: btnDisabled }" @click="currentPage++">
-          {{ $t("readmore") }}
-        </div>
+        <v-pagination
+          class="mt-10"
+          v-if="total_post"
+          v-model="page"
+          :length="total_post"
+          :total-visible="7"
+        >
+        </v-pagination>
       </div>
     </section>
   </main>
@@ -55,12 +64,12 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
       postList: [],
       query: "",
       title: "",
-      btnDisabled: false,
-      cateName: "Tin tức"
+      cateName: "Tin tức",
+      page: 1,
+      total_post: 0,
     };
   },
   mounted() {
@@ -72,19 +81,18 @@ export default {
     },
     getList() {
       let language = this.$i18n.locale == "en" ? 0 : 1;
-      if (this.$route.path.includes("tin-tuc")) {
+      if (this.$route.path.includes("tin-tuc/")) {
         this.CallAPI(
           "get",
-          `categories/${this.$route.params.id}?page=${this.currentPage}&language=${language}`,
+          `categories/${this.$route.params.id}?page=${this.page}&language=${language}`,
           {},
           (res) => {
-            if (!res.data[0]) {
-              this.btnDisabled = true;
+            if (!res.data.data[0]) {
               return;
             }
-            this.btnDisabled = false;
-            this.cateName = res.data[0].cate_name
-            this.postList = res.data;
+            this.cateName = res.data.data[0].cate_name;
+            this.postList = res.data.data;
+            this.total_post = Math.ceil(res.data.total / 6);
           }
         );
         return;
@@ -96,15 +104,14 @@ export default {
       }
       this.CallAPI(
         "get",
-        `posts?page=${this.currentPage}&language=${language}`,
+        `posts?page=${this.page}&language=${language}`,
         {},
         (res) => {
           if (!res.data.data[0]) {
-            this.btnDisabled = true;
             return;
           }
-          this.btnDisabled = false;
           this.postList = res.data.data;
+          this.total_post = Math.ceil(res.data.total / 6);
         }
       );
     },
@@ -119,8 +126,8 @@ export default {
           if (!res.data.data[0]) {
             return;
           }
-          this.btnDisabled = true;
           this.postList = res.data.data;
+          this.total_post = 0;
           if (!res.data.status) {
             this.title = this.query + ` (${this.$t("notresult")})`;
           }
@@ -134,8 +141,8 @@ export default {
     },
   },
   watch: {
-    currentPage() {
-      if (!this.title || this.currentPage > 1) {
+    page() {
+      if (!this.title || this.page > 1) {
         this.getList();
         return;
       }
@@ -145,10 +152,9 @@ export default {
       this.getList();
       this.cateName = "Tin tức";
       this.postList = [];
-      this.currentPage = 1;
-      this.btnDisabled = false;
       this.query = "";
       this.title = "";
+      this.page = 1;
     },
   },
 };

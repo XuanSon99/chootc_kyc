@@ -1296,7 +1296,8 @@ input.exchange-input:hover {
     background: #ffffff20;
 }
 
-.planet, .earth{
+.planet,
+.earth {
     transform: rotate(220deg);
     z-index: -1;
     border-radius: 50%;
