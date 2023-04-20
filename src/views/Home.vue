@@ -752,10 +752,10 @@ export default {
   methods: {
     getPost() {
       this.CallAPI("get", "categories/huong-dan-nguoi-moi", {}, (res) => {
-        this.tutorial_post = res.data.reverse().slice(0, 4);
+        this.tutorial_post = res.data.data.reverse().slice(0, 4);
       });
       this.CallAPI("get", "categories/tin-tuc-thi-truong", {}, (res) => {
-        this.market_post = res.data;
+        this.market_post = res.data.data;
       });
     },
     refreshHandle(value) {
