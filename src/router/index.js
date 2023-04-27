@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/Kyc.vue')
   },
   {
-    path: '/tin-tuc/:id',
+    path: '/danh-muc/:id',
     component: () => import('../views/Blog.vue'),
     meta: {
       header: true
@@ -55,7 +55,7 @@ const routes = [
     }
   },
   {
-    path: '/crypto',
+    path: '/tien-dien-tu',
     component: () => import('../views/rate/Crypto.vue'),
     meta: {
       header: true

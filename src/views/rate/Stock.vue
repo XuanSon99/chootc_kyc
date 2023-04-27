@@ -38,7 +38,7 @@
           <div class="mowtit">
             <span>Tin tức thị trường</span>
           </div>
-          <v-btn icon color="primary" to="/tin-tuc/tin-tuc-thi-truong">
+          <v-btn icon color="primary" to="/danh-muc/tin-tuc-thi-truong">
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </div>

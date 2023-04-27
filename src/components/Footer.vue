@@ -84,7 +84,7 @@ export default {
       });
     },
     toDetail(slug) {
-      this.$router.push("/tin-tuc/" + slug);
+      this.$router.push("/danh-muc/" + slug);
     },
   }
 };

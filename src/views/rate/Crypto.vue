@@ -46,7 +46,7 @@
           <div class="mowtit">
             <span>Tin tức crypto</span>
           </div>
-          <v-btn icon color="primary" to="/tin-tuc/crypto">
+          <v-btn icon color="primary" to="/danh-muc/crypto">
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </div>

@@ -328,7 +328,7 @@
               <div class="mowtit">
                 <span>Hướng dẫn người mới</span>
               </div>
-              <v-btn icon color="primary" to="/tin-tuc/huong-dan-nguoi-moi">
+              <v-btn icon color="primary" to="/danh-muc/huong-dan-nguoi-moi">
                 <v-icon>mdi-arrow-right</v-icon>
               </v-btn>
             </div>
@@ -427,7 +427,7 @@
           <div class="mowtit">
             <span>Tin tức thị trường</span>
           </div>
-          <v-btn icon color="primary" to="/tin-tuc/tin-tuc-thi-truong">
+          <v-btn icon color="primary" to="/danh-muc/tin-tuc-thi-truong">
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </div>

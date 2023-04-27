@@ -81,7 +81,7 @@ export default {
     },
     getList() {
       let language = this.$i18n.locale == "en" ? 0 : 1;
-      if (this.$route.path.includes("tin-tuc/")) {
+      if (this.$route.path.includes("danh-muc/")) {
         this.CallAPI(
           "get",
           `categories/${this.$route.params.id}?page=${this.page}&language=${language}`,

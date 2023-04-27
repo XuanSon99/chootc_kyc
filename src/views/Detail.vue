@@ -67,7 +67,7 @@
             </div>
           </div>
         </div>
-        <router-link tag="div" class="btn-all shadow" :to="'/tin-tuc/' + info.category">
+        <router-link tag="div" class="btn-all shadow" :to="'/danh-muc/' + info.category">
           {{ $t("readmore") }}
         </router-link>
       </div>

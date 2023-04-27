@@ -152,7 +152,7 @@ export default {
               name: "Quy định & chính sách",
             },
             {
-              slug: "/tin-tuc/huong-dan-nguoi-moi",
+              slug: "/danh-muc/huong-dan-nguoi-moi",
               name: "Hướng dẫn người mới",
             },
           ],
@@ -169,8 +169,8 @@ export default {
               name: "Giá vàng",
             },
             {
-              slug: "/crypto",
-              name: "Crypto",
+              slug: "/tien-dien-tu",
+              name: "Tiền điện tử",
             },
             {
               slug: "/chung-khoan",
@@ -231,7 +231,7 @@ export default {
       this.$router.push("/tim-kiem/" + this.query);
     },
     toDetail(slug) {
-      this.$router.push("/tin-tuc/" + slug);
+      this.$router.push("/danh-muc/" + slug);
     },
   },
   watch: {
