@@ -4,7 +4,14 @@
       <div class="mowgrid grid-footer align-start">
         <div class="foot-logo relative">
           <img src="/img/logo-footer-2.png" alt="">
-          <img src="/img/logo-footer-2.png" alt="">
+          <div class="mt-5 d-flex contact">
+            <v-icon size="18" class="mr-2">fas fa-envelope</v-icon>
+            <a href="mailto:contact@chootc.com">contact@chootc.com</a>
+          </div>
+          <div class="mt-2 d-flex contact">
+            <v-icon size="18" class="mr-2">fab fa-telegram-plane</v-icon>
+            <a href="https://t.me/ChoOTCVN_support" target="_blank">@chootcvn_support</a>
+          </div>
         </div>
         <div>
           <h2>Tỷ giá</h2>
@@ -29,15 +36,21 @@
       <div class="mowgrid foot align-center">
         <span>© 2023 chootc.com. All rights reserved</span>
         <div class="flex justify-center">
-          <router-link to="/bai-viet/ve-chung-toi" class="px-5">Giới thiệu</router-link>
-          <router-link to="/bai-viet/ve-chung-toi" class="px-5">Quy định & chính xách</router-link>
+          <router-link to="/ve-chung-toi" class="px-5">Giới thiệu</router-link>
+          <router-link to="/quy-dinh-chinh-sach" class="px-5">Quy định & chính xách</router-link>
         </div>
         <div class="flex justify-end">
           <v-btn icon color="primary" href="https://t.me/chootcvn" target="_blank">
-            <v-icon>fa-brands fa-telegram</v-icon>
+            <v-icon size="22">fa-brands fa-telegram</v-icon>
           </v-btn>
           <v-btn icon color="primary" href="https://www.facebook.com/Chootcvietnam" target="_blank">
-            <v-icon>fa-brands fa-facebook-f</v-icon>
+            <v-icon size="22">fa-brands fa-facebook-f</v-icon>
+          </v-btn>
+          <v-btn icon color="primary" href="https://twitter.com/chootcvn" target="_blank">
+            <v-icon size="22">fa-brands fa-twitter</v-icon>
+          </v-btn>
+          <v-btn icon color="primary" href="https://www.tiktok.com/@chootcvietnam" target="_blank">
+            <v-icon size="22">fa-brands fa-tiktok</v-icon>
           </v-btn>
         </div>
       </div>
@@ -154,5 +167,20 @@ footer p:hover {
   background-image: url('/img/home/cold-6.png');
   background-repeat: no-repeat;
   z-index: -1;
+}
+
+.contact a {
+  color: hsla(0, 0%, 100%, .6) !important;
+  transition: all 200ms;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.contact a:hover {
+  color: #fff !important;
+}
+
+.contact .v-icon {
+  color: hsla(0, 0%, 100%, .6) !important;
 }
 </style>

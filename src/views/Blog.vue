@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     toDetail(slug) {
-      this.$router.push("/bai-viet/" + slug);
+      this.$router.push("/" + slug);
     },
     getList() {
       let language = this.$i18n.locale == "en" ? 0 : 1;

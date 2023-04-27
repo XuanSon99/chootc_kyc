@@ -41,13 +41,6 @@ const routes = [
     }
   },
   {
-    path: '/bai-viet/:id',
-    component: () => import('../views/Detail.vue'),
-    meta: {
-      header: true
-    }
-  },
-  {
     path: '/ngoai-te',
     component: () => import('../views/rate/Currency.vue'),
     meta: {
@@ -71,6 +64,13 @@ const routes = [
   {
     path: '/chung-khoan',
     component: () => import('../views/rate/Stock.vue'),
+    meta: {
+      header: true
+    }
+  },
+  {
+    path: '/:id',
+    component: () => import('../views/Detail.vue'),
     meta: {
       header: true
     }

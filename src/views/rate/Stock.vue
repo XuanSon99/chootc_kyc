@@ -38,7 +38,7 @@
           <div class="mowtit">
             <span>Tin tức thị trường</span>
           </div>
-          <v-btn icon color="primary" to="/tin-tuc/crypto">
+          <v-btn icon color="primary" to="/tin-tuc/tin-tuc-thi-truong">
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </div>
@@ -108,7 +108,7 @@ export default {
         "categories/tin-tuc-thi-truong",
         {},
         (res) => {
-          this.crypto_post = res.data;
+          this.crypto_post = res.data.data;
         }
       );
     },
@@ -139,7 +139,7 @@ export default {
       return moment(value).format("MMMM D, YYYY");
     },
     toDetail(slug) {
-      this.$router.push("/bai-viet/" + slug);
+      this.$router.push("/" + slug);
     },
   },
 };

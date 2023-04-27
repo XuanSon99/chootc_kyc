@@ -126,7 +126,7 @@ export default {
           `categories/${res.data.category}?language=${language}`,
           {},
           (res) => {
-            this.relatedList = res.data;
+            this.relatedList = res.data.data;
           }
         );
       });
@@ -138,7 +138,7 @@ export default {
       });
     },
     toDetail(slug) {
-      this.$router.push("/bai-viet/" + slug);
+      this.$router.push("/" + slug);
     },
     formatTime(date) {
       var value = new Date(date);

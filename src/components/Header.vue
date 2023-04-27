@@ -144,11 +144,11 @@ export default {
           name: "Giới thiệu",
           child: [
             {
-              slug: "/bai-viet/ve-chung-toi",
+              slug: "/ve-chung-toi",
               name: "Về chúng tôi",
             },
             {
-              slug: "/bai-viet/quy-dinh-chinh-sach",
+              slug: "/quy-dinh-chinh-sach",
               name: "Quy định & chính sách",
             },
             {

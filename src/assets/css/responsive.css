@@ -275,14 +275,6 @@
     }
 
     .foot-logo img {
-        width: 100%;
-    }
-
-    .foot-logo img:first-child {
-        display: none;
-    }
-
-    .foot-logo img:nth-child(2) {
-        display: block;
+        height: 113px;
     }
 }

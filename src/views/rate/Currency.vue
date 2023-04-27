@@ -238,7 +238,7 @@ export default {
       return moment(value).format("MMMM D, YYYY");
     },
     toDetail(slug) {
-      this.$router.push("/bai-viet/" + slug);
+      this.$router.push("/" + slug);
     },
   },
 };
